@@ -1,1 +1,11 @@
-<h2>Work Experience</h2>
+
+<section class="workExperienceContainer">
+    <h2>Work Experience</h2>
+    <div class = workExperienceGrid>
+
+        {% for job in workExperience %}
+            {% include "workExpItem.html" %}
+            {% set job = job %}
+        {% endfor %}
+    </div>
+</section>
