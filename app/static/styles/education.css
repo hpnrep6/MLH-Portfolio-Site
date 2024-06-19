@@ -1,0 +1,26 @@
+.education-header {
+  padding: 0 2rem;
+}
+
+.education-instance {
+  display: grid;
+  grid-template-columns: 200px auto;
+  padding: 1rem 2rem;
+}
+
+.education-school {
+  display: flex;
+}
+
+.education-school img {
+  height: 3rem;
+  width: 3rem;
+  padding-top: 0.67rem;
+  padding-right: 0.67rem;
+}
+
+@media screen and (max-width: 600px) {
+  .education-instance {
+    grid-template-columns: auto;
+  }
+}

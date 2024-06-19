@@ -1,1 +1,34 @@
-<h2>Education</h2>
+<div class="education-header">
+  <h1>My Education</h1>
+</div>
+
+{% for education_instance in education.experiences %}
+
+<div class="education-instance">
+  <div class="education-timeline">
+    <h2>
+      {{ education_instance.date }}
+    </h2>
+  </div>
+  <div class="education-info">
+    <div class="education-school">
+      <h1>
+        {{ education_instance.school }}
+      </h1>
+    </div>
+    <h3>
+      {{ education_instance.title }}
+    </h3>
+    <p>
+      <ul>
+        {% for point in education_instance.description %}
+        <li>
+          {{ point }}
+        </li>
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+</div>
+
+{% endfor %}
