@@ -2,7 +2,7 @@
 
     <div>
         {% if job.id % 2 == 0 %}
-        <div class="WorkExpItemDescription">
+        <div class="WorkExpItemDescriptionLeft">
             <h3>{{job.title}}</h3>
             <p>{{job.company}}</p>
             <p>{{job.location}}</p>
@@ -13,8 +13,8 @@
     </div>
 
 
-    <div class="WorkExpItemLogo">
-
+    <div >
+        <img class="WorkExpItemLogo" src="./static/img/MLH_logo.png" alt="Company Logo">
     </div>
     <div>
         {% if job.id % 2 != 0 %}

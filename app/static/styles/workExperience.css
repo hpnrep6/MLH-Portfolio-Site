@@ -17,8 +17,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    padding: 1rem;
-    margin: 1rem;
+
     width: 50rem;
 }
 
@@ -29,7 +28,10 @@
     margin: 1rem;
     background-color: #1C539F;
 }
+.WorkExpItemDescriptionLeft{
+    text-align: right;
 
+}
 
 
 
