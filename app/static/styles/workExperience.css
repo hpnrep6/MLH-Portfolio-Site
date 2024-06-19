@@ -20,14 +20,35 @@
 
     width: 50rem;
 }
+.workExperienceCircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .WorkExpItemLogo{
+    z-index: 1;
     width: 8rem;
     height: 8rem;
     border-radius: 100%;
     margin: 1rem;
     background-color: #1C539F;
 }
+.verticalLine{
+    z-index: 0;
+    position: absolute;
+    border-left: 10px solid #1C539F;
+    height: 100%;
+    margin: 0 1rem;
+}
+.verticalLineTop{
+    height: 50%;
+
+}
+.verticalLineBottom{
+    height: 50%;
+}
+
 .WorkExpItemDescriptionLeft{
     text-align: right;
 

@@ -44,8 +44,9 @@ workExperience = [
     }
 
 ]
+numOfJobs = len(workExperience)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow", aboutMeGreetings=aboutMeGreetings, aboutMeDescription=aboutMeDescription,  workExperience=workExperience, url=os.getenv("URL"))
+    return render_template('index.html', title="MLH Fellow", aboutMeGreetings=aboutMeGreetings, aboutMeDescription=aboutMeDescription,  workExperience=workExperience, numOfJobs=numOfJobs, url=os.getenv("URL"))

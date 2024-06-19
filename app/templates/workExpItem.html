@@ -13,7 +13,16 @@
     </div>
 
 
-    <div >
+    <div class="workExperienceCircle">
+        {% if job.id == 0 %}
+        <div class="verticalLineTop"></div>
+        {% elif job.id == numOfJobs - 1 %}
+        <div class="verticalLineBottom"></div>
+        {% else %}
+        <div class="verticalLine"></div>
+
+        {% endif %}
+
         <img class="WorkExpItemLogo" src="./static/img/MLH_logo.png" alt="Company Logo">
     </div>
     <div>
