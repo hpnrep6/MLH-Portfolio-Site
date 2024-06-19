@@ -1,0 +1,50 @@
+
+/*      WORK EXPERIENCE SECTION         */
+
+.workExperienceContainer {
+    padding: 1rem;
+}
+.workExperienceGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+
+}
+
+.workExperienceItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: 1rem;
+    margin: 1rem;
+    width: 50rem;
+}
+
+.WorkExpItemLogo{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    margin: 1rem;
+    background-color: #1C539F;
+}
+
+
+
+
+.workExperienceItem:nth-child(even) {
+    justify-self: reverse;
+}
+
+@media screen and (max-width: 768px) {
+    .workExperienceItem {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .workExperienceItem:nth-child(odd),
+    .workExperienceItem:nth-child(even) {
+        justify-self: center;
+    }
+}

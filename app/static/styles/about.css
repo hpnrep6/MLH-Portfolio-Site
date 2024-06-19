@@ -1,0 +1,46 @@
+
+/*      ABOUT ME SECTION        */
+
+.aboutMeContainer {
+    padding: 1rem;
+}
+.aboutMeGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 1rem;
+
+}
+/* Media querry for grid responsivness and avoid flexbox */
+@media screen and (max-width: 600px) {
+    .aboutMeGrid {
+      grid-template-columns: 1fr;
+      grid-gap: 0;
+    }
+  }
+.aboutMeCell1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.aboutMeCell2{
+    display: block;
+}
+.aboutMeVerticalSeparator{
+    border-left: 3px solid #000000;
+    height: 100%;
+    border-radius: 10px;
+    margin: 20px;
+}
+/* Media querry for the separator so it wont't mess with the mobile version */
+@media screen and (max-width: 600px) {
+    .aboutMeVerticalSeparator {
+      display: none;
+    }
+  }
+.aboutMeTitle {
+    font-size: 3rem;
+    padding: 0rem;
+    margin: 0rem;
+}
