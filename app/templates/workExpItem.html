@@ -1,32 +1,55 @@
+<!-- Desktop Version with vertical line-->
+<div class="workExperienceDesktop">
 <div class="workExperienceItem">
 
-    <div>
-        {% if job.id % 2 == 0 %}
-        <div class="WorkExpItemDescriptionLeft">
-            <h3>{{job.title}}</h3>
-            <p>{{job.company}}</p>
-            <p>{{job.location}}</p>
-            <p>{{job.date}}</p>
-            <p>{{job.description}}</p>
-        </div>
-    {% endif %}
-    </div>
-
-
-    <div class="workExperienceCircle">
-        {% if job.id == 0 %}
-        <div class="verticalLineTop"></div>
-        {% elif job.id == numOfJobs - 1 %}
-        <div class="verticalLineBottom"></div>
-        {% else %}
-        <div class="verticalLine"></div>
-
+        <div>
+            {% if job.id % 2 == 0 %}
+            <div class="WorkExpItemDescriptionLeft">
+                <h3>{{job.title}}</h3>
+                <p>{{job.company}}</p>
+                <p>{{job.location}}</p>
+                <p>{{job.date}}</p>
+                <p>{{job.description}}</p>
+            </div>
         {% endif %}
+        </div>
 
-        <img class="WorkExpItemLogo" src="./static/img/MLH_logo.png" alt="Company Logo">
+        <div>
+            <div class="workExperienceCircle">
+                {% if job.id == 0 %}
+                <div class="verticalLineTop"></div>
+                {% elif job.id == numOfJobs - 1 %}
+                <div class="verticalLineBottom"></div>
+                {% else %}
+                <div class="verticalLine"></div>
+
+                {% endif %}
+
+                <img class="WorkExpItemLogo" src="./static/img/MLH_logo.png" alt="Company Logo">
+            </div>
+        </div>
+
+        <div>
+            {% if job.id % 2 != 0 %}
+            <div class="WorkExpItemDescription">
+                <h3>{{job.title}}</h3>
+                <p>{{job.company}}</p>
+                <p>{{job.location}}</p>
+                <p>{{job.date}}</p>
+                <p>{{job.description}}</p>
+            </div>
+        {% endif %}
+        </div>
     </div>
-    <div>
-        {% if job.id % 2 != 0 %}
+</div>
+
+<!-- Simpler mobile verison-->
+
+    <div class="workExperienceMobile">
+
+        <div class="workExperienceMobileCircle">
+            <img class="WorkExpItemLogo" src="./static/img/MLH_logo.png" alt="Company Logo">
+        </div>
         <div class="WorkExpItemDescription">
             <h3>{{job.title}}</h3>
             <p>{{job.company}}</p>
@@ -34,7 +57,7 @@
             <p>{{job.date}}</p>
             <p>{{job.description}}</p>
         </div>
-    {% endif %}
     </div>
+
 
 </div>
