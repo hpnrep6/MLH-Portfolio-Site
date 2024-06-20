@@ -15,10 +15,12 @@
         rel="stylesheet">
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
+    <link rel="stylesheet" href="./static/styles/navbar.css">
     <link rel="stylesheet" href="./static/styles/workExperience.css">
     <link rel="stylesheet" href="./static/styles/about.css">
     <link rel="stylesheet" href="./static/styles/hobbies.css">
     <link rel="stylesheet" href="./static/styles/education.css">
+
 
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
@@ -28,22 +30,16 @@
 </head>
 
 <body>
-    <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
-                </div>
-            </a>
+    {% include "navbar.html" %}
+    <section id="home">
+        <div class="profile">
+            <div id="profile-picture" class="profile-picture">
+                <img src="./static/img/logo.jpg">
+            </div>
+            <h1>{{ title }}</h1>
         </div>
-    </header>
+    </section>
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
-        </div>
-        <h1>{{ title }}</h1>
-    </div>
 
     {% include "about.html" %}
     {% set aboutMeGreetings = aboutMeGreetings %}
