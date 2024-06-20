@@ -15,8 +15,11 @@
         rel="stylesheet">
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
+    <link rel="stylesheet" href="./static/styles/workExperience.css">
+    <link rel="stylesheet" href="./static/styles/about.css">
     <link rel="stylesheet" href="./static/styles/hobbies.css">
     <link rel="stylesheet" href="./static/styles/education.css">
+
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.css">
@@ -47,6 +50,8 @@
     {% set aboutMeDescription = aboutMeDescription %}
 
     {% include "work.html" %}
+    {% set workExperience = workExperience %}
+    {% set numOfJobs = numOfJobs %}
 
     {% include "hobbies.html" %}
 

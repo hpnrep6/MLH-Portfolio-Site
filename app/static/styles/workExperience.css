@@ -1,0 +1,114 @@
+
+/*      WORK EXPERIENCE SECTION         */
+
+.workExperienceContainer {
+    padding: 1rem;
+}
+.workExperienceTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 5rem;
+}
+.workExperienceGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+
+
+}
+
+.workExperienceItem {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    height: 20rem;
+    width: 80%;
+}
+.workExperienceCircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.WorkExpItemLogo{
+    z-index: 1;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    margin: 1rem;
+    background-color: #1C539F;
+}
+.verticalLine{
+    z-index: 0;
+    position: absolute;
+    border-left: 10px solid #1C539F;
+    height: 100%;
+    margin: 0 1rem;
+}
+.verticalLineTop{
+    height: 50%;
+    bottom: 0;
+    z-index: 0;
+    position: absolute;
+    border-left: 10px solid #1C539F;
+    margin: 0 1rem;
+
+
+}
+.verticalLineBottom{
+    height: 50%;
+    top: 0;
+    z-index: 0;
+    position: absolute;
+    border-left: 10px solid #1C539F;
+    margin: 0 1rem;
+
+}
+
+.WorkExpItemDescriptionLeft{
+    text-align: right;
+
+}
+
+
+
+.workExperienceItem:nth-child(even) {
+    justify-self: reverse;
+}
+
+@media screen and (max-width: 768px) {
+    .workExperienceItem {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .workExperienceItem:nth-child(odd),
+    .workExperienceItem:nth-child(even) {
+        justify-self: center;
+    }
+}
+
+.workExperienceDesktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workExperienceMobile {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .workExperienceDesktop {
+        display: none;
+    }
+
+    .workExperienceMobile {
+        display: block;
+    }
+}
