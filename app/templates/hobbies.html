@@ -1,1 +1,37 @@
-<h2>Hobbies</h2>
+<div class="hobbies-header">
+  <h1>
+    My Hobbies
+  </h1>
+</div>
+
+<div class="hobby-container">
+
+    <div class="glide hobby-slider">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          {% for hobby in hobbies.hobbies %}
+          <li class="glide__slide">
+            <div class="hobby-cell">
+              <div class="hobby-info">
+                <h2>
+                  {{ hobby.title }}
+                </h2>
+                <p>
+                  {{ hobby.description }}
+                </p>
+              </div>
+              <div class="hobby-images">
+                <img src="{{ hobby.images[0] }}">
+              </div>
+            </div>
+
+            {% endfor %}
+          </li>
+        </ul>
+      </div>
+      <div class="glide__arrows arrow-container" data-glide-el="controls">
+        <button class="arrow" data-glide-dir="<"><</button>
+        <button class="arrow" data-glide-dir=">">></button>
+      </div>
+    </div>
+</div>
