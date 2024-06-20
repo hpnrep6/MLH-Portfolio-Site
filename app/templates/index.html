@@ -15,8 +15,12 @@
         rel="stylesheet">
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
+    <link rel="stylesheet" href="./static/styles/hobbies.css">
     <link rel="stylesheet" href="./static/styles/education.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.css">
     <title>{{ title }}</title>
 </head>
 
@@ -49,5 +53,7 @@
     {% include "education.html" %}
 
     {% include "visited.html" %}
+
+    <script src="./static/js/glide.js"></script>
 </body>
 </html>
