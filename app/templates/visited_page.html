@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    {% include "navbar.html" %}
+    {% include "navbar_external.html" %}
     <section id="home">
         <div class="profile">
             <div id="profile-picture" class="profile-picture">
@@ -41,20 +41,34 @@
         </div>
     </section>
 
+    <div class="hobbies-header">
+      <h1>
+        <a href="visited_page.html">
+          Places I've Visited
+        </a>
+      </h1>
+    </div>
+  
 
-    {% include "about.html" %}
-    {% set aboutMeGreetings = aboutMeGreetings %}
-    {% set aboutMeDescription = aboutMeDescription %}
-
-    {% include "work.html" %}
-    {% set workExperience = workExperience %}
-    {% set numOfJobs = numOfJobs %}
-
-    {% include "hobbies.html" %}
-
-    {% include "education.html" %}
-
-    {% include "visited.html" %}
+    <div class="visited-all">
+      {% for place in placesVisited.places %}
+      <li class="visited-li">
+        <div class="visited-cell">
+          <div class="hobby-info">
+            <h2>
+              {{ place.title }}
+            </h2>
+            <p>
+              {{ place.description }}
+            </p>
+          </div>
+          <div class="hobby-images">
+            <div style="width: 100%"><iframe class="visited-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{ place.url | safe }}"><a href="https://www.gps.ie/">gps tracker sport</a></iframe></div>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </div>
 
     {% include "footer.html" %}
 

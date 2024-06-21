@@ -1,46 +1,52 @@
-// contract navbar on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.nav-bar');
-    if (window.pageYOffset > 0) {
-        navbar.classList.add('navbar-scrolled');
-    } else {
-        navbar.classList.remove('navbar-scrolled');
-    }
-});
+function initialiseNavbar() {
+  // contract navbar on scroll
+  window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.nav-bar');
+      if (window.pageYOffset > 0) {
+          navbar.classList.add('navbar-scrolled');
+      } else {
+          navbar.classList.remove('navbar-scrolled');
+      }
+  });
 
-//hamburger menu toggle function
-document.addEventListener("DOMContentLoaded", function() {
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const closeButton = document.querySelector(".close-button");
-    const navLinks = document.querySelector(".nav-links");
+  //hamburger menu toggle function
+  document.addEventListener("DOMContentLoaded", function() {
+      const hamburgerMenu = document.querySelector(".hamburger-menu");
+      const closeButton = document.querySelector(".close-button");
+      const navLinks = document.querySelector(".nav-links");
 
-    hamburgerMenu.addEventListener("click", function() {
-        navLinks.classList.toggle("drawer-active");
-    });
+      hamburgerMenu.addEventListener("click", function() {
+          navLinks.classList.toggle("drawer-active");
+      });
 
-    closeButton.addEventListener("click", function() {
-        navLinks.classList.remove("drawer-active");
-    });
-});
-// smooth scroll to sections
-document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll(".nav-links a");
+      closeButton.addEventListener("click", function() {
+          navLinks.classList.remove("drawer-active");
+      });
+  });
+  // smooth scroll to sections
+  document.addEventListener("DOMContentLoaded", function() {
+      const navLinks = document.querySelectorAll(".nav-links a");
 
-    navLinks.forEach(function(link) {
-        link.addEventListener("click", function(e) {
-            e.preventDefault();
-            const target = e.target.getAttribute("href");
-            document.querySelector(target).scrollIntoView({
-                behavior: "smooth"
-            });
+      navLinks.forEach(function(link) {
+          link.addEventListener("click", function(e) {
+              e.preventDefault();
+              const target = e.target.getAttribute("href");
+              document.querySelector(target).scrollIntoView({
+                  behavior: "smooth"
+              });
 
-            // Close the drawer menu after clicking a link (for mobile view)
-            if (window.innerWidth <= 768) {
-                document.querySelector(".nav-links").classList.remove("drawer-active");
-            }
-        });
-    });
-});
+              // Close the drawer menu after clicking a link (for mobile view)
+              if (window.innerWidth <= 768) {
+                  document.querySelector(".nav-links").classList.remove("drawer-active");
+              }
+          });
+      });
+  });
+}
+
+if (window.location.pathname === "/") {
+  initialiseNavbar()
+}
 
 // highlight active section in navbar when user watches it
 /*

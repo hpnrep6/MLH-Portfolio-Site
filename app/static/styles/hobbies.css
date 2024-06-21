@@ -1,12 +1,13 @@
 .hobbies-header {
   padding: 0 2rem;
+  font-size: 1.5rem;
 }
 
 .hobby-cell {
   padding: 1rem 2rem;
   display: grid;
   grid-template-columns: 40% 60%;
-  width: 100%;
+  /* width: 100%; */
   max-height: 600px;
 }
 
@@ -62,4 +63,14 @@
 .arrow-container .arrow:hover {
   cursor: pointer;
   background-color: rgba(34, 115, 245, 0.9);
+}
+
+.hobby-li {
+  list-style-type: none;
+  padding-right: 2rem;
+  width: 100vw;
+}
+
+.hobby-li img {
+  max-height: 600px !important;
 }

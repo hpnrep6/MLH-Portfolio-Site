@@ -3,12 +3,16 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
+from app.visited import PlaceVisited, PlacesVisited
 
 load_dotenv()
 app = Flask(__name__)
 
 # Variable declarations for texts
 title = "MLH Fellow"
+
+photo = "./static/img/logo.jpg"
+
 aboutMeGreetings = "Hello There! I'm Charlie"
 aboutMeDescription = "I'm a passionate and dedicated MLH Fellow specializing in Production Engineering. I thrive on solving complex problems, optimizing systems, and ensuring the reliability and scalability of web applications. With a strong foundation in software engineering principles and hands-on experience in deploying and managing production systems, I am committed to delivering high-quality, efficient solutions."
 workExperience = [
@@ -91,16 +95,68 @@ education = EducationHistory([
     ),
 ])
 
+places_visited = PlacesVisited([
+    PlaceVisited(
+        title = "Placeholder Place Visited",
+        description = "Last summer, I visited this place",
+        url = """https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Av.%20du%20Devonshire+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"""
+    ),
+    PlaceVisited(
+        title = "Placeholder Place Visited 2",
+        description = "Last summer, I visited this place 2",
+        url = """https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=niagara%20falls+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"""
+    ),
+    PlaceVisited(
+        title = "Placeholder Place Visited 3",
+        description = "Last summer, I visited this place 3",
+        url = "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Av.%20du%20Devonshire+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+    )
+])
+
 @app.route('/')
 def index():
     return render_template(
         'index.html',
-        title="MLH Fellow",
-        aboutMeGreetings=aboutMeGreetings,
-        aboutMeDescription=aboutMeDescription,
-        workExperience=workExperience,
-        numOfJobs=numOfJobs,
+        title = "MLH Fellow",
+        photo = photo,
+        aboutMeGreetings = aboutMeGreetings,
+        aboutMeDescription = aboutMeDescription,
+        workExperience = workExperience,
+        numOfJobs = numOfJobs,
         hobbies = hobbies,
         education = education,
+        placesVisited = places_visited,
+        url=os.getenv("URL")
+    )
+
+@app.route('/visited_page.html')
+def visited_page():
+    return render_template(
+        'visited_page.html',
+        title = "MLH Fellow",
+        photo = photo,
+        aboutMeGreetings = aboutMeGreetings,
+        aboutMeDescription = aboutMeDescription,
+        workExperience = workExperience,
+        numOfJobs = numOfJobs,
+        hobbies = hobbies,
+        education = education,
+        placesVisited = places_visited,
+        url=os.getenv("URL")
+    )
+
+@app.route('/hobbies_page.html')
+def hobbies_page():
+    return render_template(
+        'hobbies_page.html',
+        title = "MLH Fellow",
+        photo = photo,
+        aboutMeGreetings = aboutMeGreetings,
+        aboutMeDescription = aboutMeDescription,
+        workExperience = workExperience,
+        numOfJobs = numOfJobs,
+        hobbies = hobbies,
+        education = education,
+        placesVisited = places_visited,
         url=os.getenv("URL")
     )

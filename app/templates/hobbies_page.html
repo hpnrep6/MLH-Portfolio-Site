@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    {% include "navbar.html" %}
+    {% include "navbar_external.html" %}
     <section id="home">
         <div class="profile">
             <div id="profile-picture" class="profile-picture">
@@ -41,20 +41,33 @@
         </div>
     </section>
 
+    <div class="hobbies-header">
+      <h1>
+        <a href="visited_page.html">
+          My Hobbies
+        </a>
+      </h1>
+    </div>
+  
 
-    {% include "about.html" %}
-    {% set aboutMeGreetings = aboutMeGreetings %}
-    {% set aboutMeDescription = aboutMeDescription %}
-
-    {% include "work.html" %}
-    {% set workExperience = workExperience %}
-    {% set numOfJobs = numOfJobs %}
-
-    {% include "hobbies.html" %}
-
-    {% include "education.html" %}
-
-    {% include "visited.html" %}
+    {% for hobby in hobbies.hobbies %}
+    <li class="hobby-li">
+      <div class="hobby-cell">
+        <div class="hobby-info">
+          <h2>
+            {{ hobby.title }}
+          </h2>
+          <p>
+            {{ hobby.description }}
+          </p>
+        </div>
+        <div class="hobby-images">
+          <img src="{{ hobby.images[0] }}">
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+    </div>
 
     {% include "footer.html" %}
 
