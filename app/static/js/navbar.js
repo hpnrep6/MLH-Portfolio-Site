@@ -24,29 +24,30 @@ function initialiseNavbar() {
       });
   });
   // smooth scroll to sections
-  document.addEventListener("DOMContentLoaded", function() {
-      const navLinks = document.querySelectorAll(".nav-links a");
+document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll(".nav-links a");
 
-      navLinks.forEach(function(link) {
-          link.addEventListener("click", function(e) {
-              e.preventDefault();
-              const target = e.target.getAttribute("href");
-              document.querySelector(target).scrollIntoView({
-                  behavior: "smooth"
-              });
+    navLinks.forEach(function(link) {
+        link.addEventListener("click", function(e) {
+            const target = e.target.getAttribute("href");
+            // Check if the target is an anchor link on the same page
+            if (target.startsWith("#")) {
+                e.preventDefault(); // Prevent default only for anchor links
+                document.querySelector(target).scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
 
-              // Close the drawer menu after clicking a link (for mobile view)
-              if (window.innerWidth <= 768) {
-                  document.querySelector(".nav-links").classList.remove("drawer-active");
-              }
-          });
-      });
-  });
+            // Close the drawer menu after clicking a link (for mobile view)
+            if (window.innerWidth <= 768) {
+                document.querySelector(".nav-links").classList.remove("drawer-active");
+            }
+        });
+    });
+});
 }
 
-if (window.location.pathname === "/") {
-  initialiseNavbar()
-}
+initialiseNavbar();
 
 // highlight active section in navbar when user watches it
 /*
