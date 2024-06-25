@@ -9,12 +9,12 @@ load_dotenv()
 app = Flask(__name__)
 
 # Variable declarations for texts
-title = "MLH Fellow"
+title = "Young Chen"
 
-photo = "./static/img/logo.jpg"
+photo = "./static/img/profile.jpg"
 
-aboutMeGreetings = "Hello There! I'm Charlie"
-aboutMeDescription = "I'm a passionate and dedicated MLH Fellow specializing in Production Engineering. I thrive on solving complex problems, optimizing systems, and ensuring the reliability and scalability of web applications. With a strong foundation in software engineering principles and hands-on experience in deploying and managing production systems, I am committed to delivering high-quality, efficient solutions."
+aboutMeGreetings = "Hello There! I'm Young"
+aboutMeDescription = "I'm currently an MLH Fellow specializing in Production Engineering. I thrive on solving complex problems, optimizing systems, and ensuring the reliability and scalability of web applications. With a strong foundation in software engineering principles and hands-on experience in deploying and managing production systems, I am committed to delivering high-quality, efficient solutions."
 workExperience = [
     {
         "id": 0,
@@ -22,31 +22,23 @@ workExperience = [
         "company": "Major League Hacking",
         "date": "June 2024 - Present",
         "description": "Participated in a fellowship program focused on site reliability engineering and DevOps. Implemented CI/CD pipelines, monitored system performance, and collaborated with a global team to improve application scalability and reliability.",
-        "image": "path/to/mlh_image.jpg"
+        "image": "./static/img/MLH_logo.png"
     },
     {
         "id": 1,
-        "title": "Software Engineer Intern",
-        "company": "KATCON",
-        "date": "October 2023 - Present",
-        "description": "Deployed web applications using React to optimize internal processes of customer service and billing. Integrated AWS services on my projects to manage databases, authentication, and cloud storage. Developed a software solution to manage financial processes and received positive feedback from company leadership.",
-        "image": "path/to/katcon_image.jpg"
+        "title": "Teaching Assistant",
+        "company": "University of Toronto",
+        "date": "September 2022 - Present",
+        "description": "Lead tutorials for a class of 30, helping to provide student with practical examples of the course material. Increased the tutorial’s course average by around 10% compared to the overall course average. Taught Calculus 1 & 2 for Physical Sciences and Calculus 2 for Management.",
+        "image": "./static/img/uoft.png"
     },
     {
         "id": 2,
-        "title": "Founder Software Engineer",
-        "company": "MedicFlow",
-        "date": "December 2023 - April 2024",
-        "description": "Developed the mobile application using React Native which is now the main product of the company. Led the Front-end development team and implemented Agile methodology to meet ambitious deadlines. Integrated AI models for speech recognition as well as LLMs for text processing.",
-        "image": "path/to/medicflow_image.jpg"
-    },
-    {
-        "id": 3,
-        "title": "Software Developer",
-        "company": "Proyecto 99",
-        "date": "December 2022 - February 2023",
-        "description": "Developed a web application using React to manage their operations and allow students to sign up for courses. Learned about SCRUM methodology and software development processes. Deployed the project which is now used to manage student inscriptions.",
-        "image": "path/to/proyecto99_image.jpg"
+        "title": "Software Developer Intern",
+        "company": "AutoTrader",
+        "date": "September 2022 - April 2023",
+        "description": "Developed Jetpack Compose components for internal APIs, allowing for an 80\% increase of developer efficiency through the use of modularity and reusability. Worked in an Agile environment by tracking tasks on a Kanban board and resolving blockers during daily standups. Improved the user experience of 1,400,000 users by developing application enhancements and bug fixes.",
+        "image": "./static/img/auto.jpeg"
     }
 
 ]
@@ -56,40 +48,33 @@ numOfJobs = len(workExperience)
 
 hobbies = Hobbies(hobbies = [
   Hobby(
-      title = "Underwater basket weaving",
-      description = "Every weekend, I weave baskets underwater",
+      title = "3D Printing",
+      description = "Recently, I've been creating 3D models and printing them.",
       images = [
-          "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+          "./static/img/3d.jpg"
       ]
   ),
   Hobby(
-      title = "Underwater basket weaving 2",
-      description = "Every weekend, I weave baskets underwater",
+      title = "Photography",
+      description = "I like taking photos of stuff.",
       images = [
-          "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+          "./static/img/bagcam.jpg"
       ]
   ),
-  Hobby(
-      title = "Underwater basket weaving 3",
-      description = "Every weekend, I weave baskets underwater",
-      images = [
-          "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
-      ]
-  )
 ])
 
 education = EducationHistory([
     EducationExperience(
         title = "Bachelor of Science in Computer Science",
         school = "University of Toronto",
-        description = ["X/4.0 GPA", "Awards: Placeholder awards"],
+        description = ["3.6/4.0 GPA", "Awards: University of Toronto Scholar, Dean's List 2023"],
         date = "2021 - 2025",
         logo = "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1280px-Utoronto_coa.svg.png"
     ),
     EducationExperience(
         title = "Ontario Secondary School Degree (OSSD)",
-        school = "Some High School I guess",
-        description = ["X/4.0 GPA", "Awards: Placeholder awards"],
+        school = "Pierre Elliott Trudeau High School",
+        description = ["97% Average", "Awards: Ontario Scholar", "Clubs: CS Club, Mathematica, Game Design Club"],
         date = "2017 - 2021",
         logo = "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1280px-Utoronto_coa.svg.png"
     ),
@@ -97,19 +82,19 @@ education = EducationHistory([
 
 places_visited = PlacesVisited([
     PlaceVisited(
-        title = "Placeholder Place Visited",
-        description = "Last summer, I visited this place",
-        url = """https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Av.%20du%20Devonshire+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"""
-    ),
-    PlaceVisited(
-        title = "Placeholder Place Visited 2",
-        description = "Last summer, I visited this place 2",
+        title = "Niagara Falls",
+        description = "This winter, I went to Niagara Falls to see the waterfall.",
         url = """https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=niagara%20falls+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"""
     ),
     PlaceVisited(
-        title = "Placeholder Place Visited 3",
-        description = "Last summer, I visited this place 3",
-        url = "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Av.%20du%20Devonshire+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        title = "Mont Tremblant",
+        description = "Last winter, I drove 10 hours to go skiing at Mont Tremblant near Montreal.",
+        url = """https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=mont%20tremblant+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"""
+    ),
+    PlaceVisited(
+        title = "CN Tower",
+        description = "A few months ago, I went up the CN Tower to see the Toronto skyline.",
+        url = """https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=cn%20tower+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"""
     )
 ])
 
