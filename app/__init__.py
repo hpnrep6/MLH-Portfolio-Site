@@ -14,7 +14,7 @@ title = "Carlos Martínez - MLH Fellow"
 photo = "./static/img/me.jpeg"
 
 aboutMeGreetings = "Hello There! I'm Charlie"
-aboutMeDescription = "I'm a passionate and dedicated MLH Fellow specializing in Production Engineering. I thrive on solving complex problems, optimizing systems, and ensuring the reliability and scalability of web applications. With a strong foundation in software engineering principles and hands-on experience in deploying and managing production systems, I am committed to delivering high-quality, efficient solutions."
+aboutMeDescription = "I'm an MLH Fellow specializing in Production Engineering. I thrive on solving complex problems, optimizing systems, and ensuring the reliability and scalability of web applications. With a strong foundation in software engineering principles and hands-on experience in deploying and managing production systems, I am committed to delivering high-quality, efficient solutions."
 workExperience = [
     {
         "id": 0,
