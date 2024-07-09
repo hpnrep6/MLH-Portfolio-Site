@@ -4,9 +4,38 @@ from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
 from app.visited import PlaceVisited, PlacesVisited
+from peewee import MySQLDatabase
+from peewee import Model, CharField, TextField, DateTimeField
+import datetime
+from playhouse.shortcuts import model_to_dict
 
 load_dotenv()
 app = Flask(__name__)
+
+#DB Config
+mydb = MySQLDatabase(
+    os.getenv("MYSQL_DATABASE"),
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
+    host=os.getenv("MYSQL_HOST"),
+    port=3306
+)
+
+print(mydb)
+
+#creating the table
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
 
 # Variable declarations for texts
 title = "Carlos Martínez - MLH Fellow"
@@ -161,3 +190,32 @@ def hobbies_page():
         placesVisited = places_visited,
         url=os.getenv("URL")
     )
+
+@app.route('/api/timeline_post', methods=['POST'])
+def post_timeline_post():
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+    timeline_post_instance = TimelinePost.create(name=name, email=email, content=content)  # Changed variable name
+
+    return model_to_dict(timeline_post_instance)
+
+@app.route('/api/timeline_post', methods=['GET'])
+def get_timeline_post():
+    return {
+        'timeline_posts': [
+            model_to_dict(p)
+            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
+@app.route('/api/timeline_post', methods=['DELETE'])
+def delete_timeline_post():
+    post_id = request.form['id']
+    print(post_id)
+    TimelinePost.delete().where(TimelinePost.id == post_id).execute()
+
+    return {
+
+        'Message': "Post deleted successfully!"
+    }
