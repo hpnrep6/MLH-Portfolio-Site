@@ -1,0 +1,123 @@
+.timelineFormWrap{
+    margin: 2rem;
+}
+
+.accordion {
+	background-color: #e1dfdf;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+	position: relative; /* Ensure the pseudo-element positions correctly */
+}
+
+.accordion::before {
+    content: "▶"; /* Default symbol pointing to the right */
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s; /* Smooth transition for rotation */
+}
+
+.accordion.active::before {
+    content: "▼"; /* Change symbol when active */
+}
+
+.panel {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.form {
+	margin: 2rem
+
+}
+.form form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form label {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.form input[type="email"],
+.form input[type="text"],
+.form textarea {
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+    box-sizing: border-box;
+}
+
+.form textarea {
+	resize: vertical; /* Allows vertical resizing, might be useful for content */
+}
+
+.form button {
+	padding: 10px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+	background-color: #f0d642fa;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.form button:hover {
+	background-color: #b5a12dfa;
+}
+
+.timelineWrap {
+    margin: 2rem;
+    background-color: #e1dfdf;
+    align-items: center;
+    justify-content: center;
+    display: flex; /* Ensure this is a flex container if it's not already */
+    flex-direction: column; /* Stack children vertically */
+    width: 100%; /* Ensure it takes the full width */
+}
+
+.timelinePost {
+    display: flex;
+    margin: 4rem;
+    align-self: start;
+    width: 100%; /* This should now effectively take up all the width of .timelineWrap */
+}
+
+.postImageWrap{
+
+}
+.postImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+.postHeaderFirstLine{
+    display: flex;
+    justify-content: space-between;
+}
+.firstLineLeft{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.timelinePostTextWrap{
+
+}

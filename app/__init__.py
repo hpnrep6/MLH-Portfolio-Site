@@ -159,23 +159,8 @@ def index():
         url=os.getenv("URL")
     )
 
-@app.route('/visited_page.html')
-def visited_page():
-    return render_template(
-        'visited_page.html',
-        title = "MLH Fellow",
-        photo = photo,
-        aboutMeGreetings = aboutMeGreetings,
-        aboutMeDescription = aboutMeDescription,
-        workExperience = workExperience,
-        numOfJobs = numOfJobs,
-        hobbies = hobbies,
-        education = education,
-        placesVisited = places_visited,
-        url=os.getenv("URL")
-    )
 
-@app.route('/hobbies_page.html')
+@app.route('/hobbies_page')
 def hobbies_page():
     return render_template(
         'hobbies_page.html',
@@ -190,6 +175,20 @@ def hobbies_page():
         placesVisited = places_visited,
         url=os.getenv("URL")
     )
+@app.route('/timeline')
+def timeline():
+    return render_template(
+        'timeline.html',
+        title = "MLH Fellow",
+        photo = photo,
+        url=os.getenv("URL"),
+        posts=get_timeline_post()
+
+    )
+
+
+
+# API Endpoints
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_timeline_post():
