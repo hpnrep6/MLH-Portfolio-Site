@@ -1,11 +1,10 @@
 <div class="timelinePost">
 
-    <div class="timelinePostTextWrap">
         <div class="timelinePostHeader">
             <div class="postHeaderFirstLine">
                 <div class="firstLineLeft">
                     <div class="postImageWrap">
-                        <img id="gravatar-image" class="postImage">
+                        <img class="gravatar-image postImage" data-post-id="{{ post.id }}">
                     </div>
                     <div class="timelinePostName">{{ post.name }}</div>
                 </div>
@@ -17,17 +16,20 @@
         </div>
         <div class="timelinePostContent">{{ post.content }}</div>
 
-    </div>
+
 </div>
 
-<script>
-    document.addEventListener( 'DOMContentLoaded', () => {
-        // Step 1: Hash your email address using SHA-256.
-        const hashedEmail = CryptoJS.SHA256( 'carlosh.mtz@hotmail.com' );
-        // Step 2: Construct the Gravatar URL.
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        var postEmail = "{{ post.email }}";
+        console.log(postEmail);
+
+        // Hash the email address using SHA-256.
+        const hashedEmail = CryptoJS.SHA256(postEmail).toString(CryptoJS.enc.Hex);
+        // Construct the Gravatar URL.
         const gravatarUrl = `https://www.gravatar.com/avatar/${hashedEmail}`;
-        console.log( gravatarUrl );
-        // Step 3: Set the image source to the Gravatar URL.
-        document.getElementById( 'gravatar-image' ).src = gravatarUrl;
-    } );
+        console.log(gravatarUrl);
+        // Set the image source to the Gravatar URL.
+        document.querySelector(`.gravatar-image[data-post-id="{{ post.id }}"]`).src = gravatarUrl;
+    });
 </script>

@@ -40,11 +40,9 @@
         </div>
     </section>
 
-    <div class="hobbies-header">
+    <div class="timelineHeader">
       <h1>
-        <a href="visited_page.html">
           Timeline
-        </a>
       </h1>
     </div>
 
@@ -52,22 +50,24 @@
         <button class="accordion">New Post</button>
         <div class="panel">
             <div class="form">
-                <form>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="form">
+                    <form id="myForm">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
 
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
 
-                    <label for="content">Content:</label>
-                    <textarea id="content" name="content" rows="10" required></textarea>
+                        <label for="content">Content:</label>
+                        <textarea id="content" name="content" rows="10" required></textarea>
 
-                    <button type="submit">Submit</button>
-                </form>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <p>{{  posts  }}</p>
+
     <div class="timelineWrap">
         {% for post in posts.timeline_posts %}
             {% include "post.html" %}
@@ -87,6 +87,46 @@
     <script src="./static/js/glide.js"></script>
     <script src="./static/js/accordion.js"></script>
 
+    <script>
+
+        // Assuming `form` is a reference to your form element
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(form);
+
+            fetch('/api/timeline_post', {
+                method: 'POST',
+                body: formData, // Send the form data as FormData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Form submission success:', data);
+                form.reset(); // Reset the form fields
+
+                // Deactivate all active accordions
+                var activeAccordions = document.querySelectorAll('.accordion.active');
+                activeAccordions.forEach(function(activeAccordion) {
+                    activeAccordion.classList.remove('active');
+                    var panel = activeAccordion.nextElementSibling;
+                    panel.style.maxHeight = null;
+                });
+                window.location.reload(); // Reload the page
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        </script>
 
 
 </body>

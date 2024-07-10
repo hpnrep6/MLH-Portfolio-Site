@@ -1,3 +1,7 @@
+.timelineHeader{
+    margin: 2rem;
+    font-size: 1.8rem;
+}
 .timelineFormWrap{
     margin: 2rem;
 }
@@ -6,21 +10,24 @@
 	background-color: #e1dfdf;
 	color: #444;
 	cursor: pointer;
-	padding: 18px;
+	padding: 20px;
 	width: 100%;
 	border: none;
 	text-align: left;
 	outline: none;
-	font-size: 15px;
+	font-size: 1.2rem;
 	transition: 0.4s;
-	position: relative; /* Ensure the pseudo-element positions correctly */
+	position: relative;
+    border-radius: 5px;
+
 }
 
 .accordion::before {
-    content: "▶"; /* Default symbol pointing to the right */
+    content: "▶";
     position: absolute;
     left: 0;
-    transition: transform 0.2s; /* Smooth transition for rotation */
+    transition: transform 0.2s;
+
 }
 
 .accordion.active::before {
@@ -33,6 +40,7 @@
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
+    border-radius: 5px;
 }
 
 .form {
@@ -86,16 +94,18 @@
     background-color: #e1dfdf;
     align-items: center;
     justify-content: center;
-    display: flex; /* Ensure this is a flex container if it's not already */
-    flex-direction: column; /* Stack children vertically */
-    width: 100%; /* Ensure it takes the full width */
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 4rem;
 }
 
 .timelinePost {
-    display: flex;
-    margin: 4rem;
     align-self: start;
-    width: 100%; /* This should now effectively take up all the width of .timelineWrap */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .postImageWrap{
