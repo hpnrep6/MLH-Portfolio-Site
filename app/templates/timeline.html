@@ -89,17 +89,16 @@
 
     <script>
 
-        // Assuming `form` is a reference to your form element
         const form = document.getElementById('myForm');
 
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
             const formData = new FormData(form);
 
             fetch('/api/timeline_post', {
                 method: 'POST',
-                body: formData, // Send the form data as FormData
+                body: formData,
             })
             .then(response => {
                 if (!response.ok) {
@@ -109,16 +108,16 @@
             })
             .then(data => {
                 console.log('Form submission success:', data);
-                form.reset(); // Reset the form fields
+                form.reset();
 
-                // Deactivate all active accordions
+                // Deactivate the active accordion
                 var activeAccordions = document.querySelectorAll('.accordion.active');
                 activeAccordions.forEach(function(activeAccordion) {
                     activeAccordion.classList.remove('active');
                     var panel = activeAccordion.nextElementSibling;
                     panel.style.maxHeight = null;
                 });
-                window.location.reload(); // Reload the page
+                window.location.reload();
 
             })
             .catch(error => {

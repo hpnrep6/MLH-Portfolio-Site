@@ -31,7 +31,7 @@
 }
 
 .accordion.active::before {
-    content: "▼"; /* Change symbol when active */
+    content: "▼";
 }
 
 .panel {
@@ -69,7 +69,7 @@
 }
 
 .form textarea {
-	resize: vertical; /* Allows vertical resizing, might be useful for content */
+	resize: vertical;
 }
 
 .form button {

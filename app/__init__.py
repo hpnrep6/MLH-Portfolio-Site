@@ -22,6 +22,12 @@ mydb = MySQLDatabase(
 )
 
 print(mydb)
+print(os.getenv("MYSQL_DATABASE"))
+print(os.getenv("MYSQL_USER"))
+print(os.getenv("MYSQL_PASSWORD"))
+print(os.getenv("MYSQL_HOST"))
+
+
 
 #creating the table
 class TimelinePost(Model):
