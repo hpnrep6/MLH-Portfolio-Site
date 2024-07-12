@@ -4,9 +4,18 @@ from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
 from app.visited import PlaceVisited, PlacesVisited
+from peewee import *
 
 load_dotenv()
 app = Flask(__name__)
+
+mydb =
+MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+              user=os.getenv("MYSQL_USER"),
+              password=os.getenv("MYSQL_PASSWORD"),
+              host=os.getenv("MYSQL_HOST"),
+              port=3306
+ )
 
 # Variable declarations for texts
 title = "Young Chen"
