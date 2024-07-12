@@ -16,6 +16,8 @@ mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
               port=3306
  )
 
+print(mydb)
+
 # Variable declarations for texts
 title = "Young Chen"
 
