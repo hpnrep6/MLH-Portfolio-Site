@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
 from app.visited import PlaceVisited, PlacesVisited
+import datatime
 from peewee import *
 
 load_dotenv()
