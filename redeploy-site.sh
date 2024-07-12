@@ -4,4 +4,4 @@ tmux new-session -d -s deployment 'python3 -m venv python3-virtualenv &&
 source python3-virtualenv/bin/activate &&
 pip install -r requirements.txt &&
 flask run --host=0.0.0.0 --port=80'
-echo 
+echo 'Deployment script executed'
