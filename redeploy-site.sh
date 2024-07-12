@@ -1,3 +1,4 @@
+tmux kill-session -t deployment
 git fetch && git reset origin/main --hard
 python3 -m venv python3-virtualenv
 source python3-virtualenv/bin/activate
