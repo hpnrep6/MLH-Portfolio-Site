@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
 from app.visited import PlaceVisited, PlacesVisited
-from datetime import datatime
+from datetime import datetime
 from peewee import *
 
 load_dotenv()
@@ -23,7 +23,7 @@ class TimelinePost(Model):
   name = CharField()
   email = CharField()
   content = TextField()
-  created_at = DateTimeField(defualt=datetime.datetime.now)
+  created_at = DateTimeField(defualt=datetime.now)
 
   class Meta:
     database = mydb
