@@ -73,3 +73,17 @@ a:hover {
   color: #1d539f;
   width: fit-content;
 }
+
+.timeline-form {
+  padding: 2rem;
+}
+
+.timeline-elem {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.timeline-posts {
+  padding: 2rem;
+}

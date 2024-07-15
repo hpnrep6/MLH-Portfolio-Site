@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
 from app.visited import PlaceVisited, PlacesVisited
+from playhouse.shortcuts import model_to_dict, dict_to_model
 import datetime
 from peewee import *
 
@@ -37,11 +38,12 @@ def post_time_line_post():
   email = request.form['email']
   content = request.form['content']
   timeline_post = TimelinePost.create(name=name, email=email, content=content)
-
   return model_to_dict(timeline_post)
+
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post():
+  print(3)
   return {
     'timeline_posts': [
       model_to_dict(p)
@@ -187,3 +189,19 @@ def hobbies_page():
         placesVisited = places_visited,
         url=os.getenv("URL")
     )
+
+@app.route('/timeline.html')
+def timeline_page():
+  return render_template(
+    'timeline.html',
+      title = "MLH Fellow",
+      photo = photo,
+      aboutMeGreetings = aboutMeGreetings,
+      aboutMeDescription = aboutMeDescription,
+      workExperience = workExperience,
+      numOfJobs = numOfJobs,
+      hobbies = hobbies,
+      education = education,
+      placesVisited = places_visited,
+      url=os.getenv("URL")
+  )
