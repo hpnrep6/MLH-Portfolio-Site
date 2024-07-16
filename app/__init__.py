@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, render_template, request
 from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
@@ -7,16 +7,23 @@ from app.visited import PlaceVisited, PlacesVisited
 from playhouse.shortcuts import model_to_dict, dict_to_model
 import datetime
 from peewee import *
+import re
+
 
 load_dotenv()
 app = Flask(__name__)
 
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-              user=os.getenv("MYSQL_USER"),
-              password=os.getenv("MYSQL_PASSWORD"),
-              host=os.getenv("MYSQL_HOST"),
-              port=3306
- )
+
+if os.getenv("TESTING") == "True":
+  mydb = SqliteDatabase(':memory:')
+else:
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+                user=os.getenv("MYSQL_USER"),
+                password=os.getenv("MYSQL_PASSWORD"),
+                host=os.getenv("MYSQL_HOST"),
+                port=3306
+    )
+
 print(os.getenv("MYSQL_USER"))
 print(mydb)
 
@@ -34,11 +41,24 @@ mydb.create_tables([TimelinePost])
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-  name = request.form['name']
-  email = request.form['email']
-  content = request.form['content']
-  timeline_post = TimelinePost.create(name=name, email=email, content=content)
-  return model_to_dict(timeline_post)
+    # Check if fields are present and not empty
+    name = request.form.get('name', '').strip()
+    if not name:
+        return jsonify({"error": "Invalid name"}), 400
+
+    email = request.form.get('email', '').strip()
+    # implemented regex to check email is valid
+    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if not email or not re.match(email_regex, email):
+        return jsonify({"error": "Invalid email"}), 400
+
+    content = request.form.get('content', '').strip()
+    if not content:
+        return jsonify({"error": "Invalid content"}), 400
+
+    # Create and return the timeline post
+    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+    return jsonify(model_to_dict(timeline_post)), 200
 
 
 @app.route('/api/timeline_post', methods=['GET'])
