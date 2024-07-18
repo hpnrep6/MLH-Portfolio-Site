@@ -4,22 +4,27 @@ from dotenv import load_dotenv
 from app.hobby import Hobbies, Hobby
 from app.education import EducationExperience, EducationHistory
 from app.visited import PlaceVisited, PlacesVisited
-from peewee import MySQLDatabase
+from peewee import *
 from peewee import Model, CharField, TextField, DateTimeField
 import datetime
 from playhouse.shortcuts import model_to_dict
+import re
 
-load_dotenv()
+load_dotenv('example.env')
 app = Flask(__name__)
 
 #DB Config
-mydb = MySQLDatabase(
-    os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=3306
-)
+if os.getenv("TESTING") == "true":
+    print("Running in test mode")
+    mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+else:
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        host=os.getenv("MYSQL_HOST"),
+        port=3306
+    )
+
 
 print(mydb)
 print(os.getenv("MYSQL_DATABASE"))
@@ -198,12 +203,22 @@ def timeline():
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_timeline_post():
-    name = request.form['name']
-    email = request.form['email']
-    content = request.form['content']
-    timeline_post_instance = TimelinePost.create(name=name, email=email, content=content)  # Changed variable name
+    name = request.form.get('name')
+    if name is None:
+        return {"error": "Invalid name"}, 400
 
-    return model_to_dict(timeline_post_instance)
+    email = request.form.get('email')
+    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if email is None or not re.match(email_regex, email):
+        return {"error": "Invalid email"}, 400
+
+    content = request.form.get('content')
+    if content is None or len(content) == 0:
+        return {"error": "Invalid content"}, 400
+
+    # Create and return the timeline post
+    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+    return model_to_dict(timeline_post)
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_timeline_post():
