@@ -6,7 +6,7 @@ WORKDIR /myportfolio
 
 COPY . .
 
-RUN python3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 CMD ["flask", "run", "--host=0.0.0.0"]
 
