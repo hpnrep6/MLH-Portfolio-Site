@@ -1,6 +1,6 @@
-FROM centos:latest
+FROM ubuntu:20.04
 
-RUN dnf install -y python3.9
+RUN apt install -y python3.9
 
 WORKDIR /myportfolio
 
