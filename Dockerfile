@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:latest
 
 RUN dnf install -y python3
 
