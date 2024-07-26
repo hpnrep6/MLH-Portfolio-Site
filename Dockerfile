@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get install -y python3
+RUN apt udpate && apt install -y python3
 
 WORKDIR /myportfolio
 
