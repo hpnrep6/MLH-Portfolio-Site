@@ -1,6 +1,6 @@
 FROM centos:latest
 
-RUN dnf install -y python3
+RUN dnf install -y python3.9
 
 WORKDIR /myportfolio
 
