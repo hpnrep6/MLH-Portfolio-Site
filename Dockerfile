@@ -1,4 +1,4 @@
-FROM quay.io/centos/centos:stream9-minimal
+FROM quay.io/centos/centos:stream9
 
 RUN dnf install -y python3
 
