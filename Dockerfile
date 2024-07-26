@@ -1,6 +1,6 @@
-FROM quay.io/centos/centos:stream9
+FROM quay.io/centos/centos:stream8
 
-RUN dnf install -y python3.11
+RUN dnf install -y python3.8
 
 WORKDIR /myportfolio
 
