@@ -6,6 +6,8 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      - TESTING=True
     depends_on:
       - mysql
 
@@ -31,7 +33,7 @@ services:
       - nginx_secrets:/etc/letsencrypt
       - ./user_conf.d:/etc/nginx/user_conf.d
     depends_on:
-      - portfolio
+      - myportfolio
 
 volumes:
   mydatabase:
