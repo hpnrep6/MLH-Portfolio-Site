@@ -6,6 +6,8 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      - TESTING=True
     depends_on:
       - mysql
 
