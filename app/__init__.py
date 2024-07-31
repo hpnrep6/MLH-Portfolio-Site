@@ -77,7 +77,7 @@ title = "Young Chen"
 
 photo = "./static/img/profile.jpg"
 
-aboutMeGreetings = "Hello There! I'm Young"
+aboutMeGreetings = "Hello there! I'm Young"
 aboutMeDescription = "I'm currently an MLH Fellow specializing in Production Engineering. I thrive on solving complex problems, optimizing systems, and ensuring the reliability and scalability of web applications. With a strong foundation in software engineering principles and hands-on experience in deploying and managing production systems, I am committed to delivering high-quality, efficient solutions."
 workExperience = [
     {
